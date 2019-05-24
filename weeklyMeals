@@ -1,0 +1,60 @@
+import random
+''' Randomly select 1 meal from Fish and Veggie and 5 meals from standard. 
+    After selection the meal should be placed in last weeks meal file. Every time you run
+    the 1st week gets moved to the 2nd week and 2nd week back to source meals. 
+'''
+weeklyMenu=[]
+
+lastMeals=open('lastMeals.txt', 'r')
+lastMealContents=lastMeals.readlines()
+lastMeals.close()
+mealFile=open('Meals.txt','r')
+mealContents=mealFile.readlines()
+print(mealContents)
+mealFile.close()
+#Random=random.randint(0, len(fishFileContents)-1)
+#WeeklyMeal.append(fishFileContents[fishRandom])
+#fishFile=open('fish.txt','w')
+#Write the lines back to fishFile without the selected meal
+#for line in fishFileContents:
+#    if line!=fishFileContents[fishRandom]:
+#        fishFile.write(line)
+#fishFile.close()
+#print(fishFileContents)
+
+#lastWeek=open('lastWeekMeals.txt', 'r')
+#lastWeekContents=lastWeek.readlines()
+#lastWeek.close()
+
+#lastWeek=open('lastWeekMeals.txt', 'w')
+#lastWeek.write(fishFileContents[fishRandom])
+
+lastMeals=open('lastMeals.txt', 'w')
+index=0
+while True:
+    while True:
+        mealRandom=random.randint(0, len(mealContents)-1)
+        if mealContents[mealRandom] in weeklyMenu:
+            continue
+        weeklyMenu.append(mealContents[mealRandom])
+        index+=1
+#        lastMeals.write(mealContents[mealRandom])
+        if index==7:
+            print(weeklyMenu)
+            break
+#    lastMeals.close()
+#    lastMeals=open('lastMeals.txt', 'r')
+#    print(lastMeals.read())
+#    lastMeals.close()
+    if input('Change em up? (y/n):') == 'y':
+        mealRandom=input('Which meal would you like to change fancy pants? :')
+        del weeklyMenu[int(mealRandom)]
+        index-=1
+        continue
+    else:
+        break    
+lastMeals.write(str(weeklyMenu))
+lastMeals.close()
+lastMeals=open('lastMeals.txt', 'r')
+print(lastMeals.read())
+lastMeals.close()
