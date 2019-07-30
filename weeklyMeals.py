@@ -39,7 +39,7 @@ How?
 #DONE Get ingredients from the webpages and add to the list
 #DONE Add a menu to the progam and create functions.
 #TODO set this up for database access
-#TODO Set this up with a GUI
+#TODO Set this up with a GUI stuff
 #TODO Enable search for meal ideas based on ingredients.
 #TODO Tidy up with functions
 #TODO Order online
